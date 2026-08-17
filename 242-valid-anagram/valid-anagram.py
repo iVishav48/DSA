@@ -1,0 +1,17 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        ss = len(s)
+        tt = len(t)
+        if tt != ss:
+            return False
+
+        freq = [0] * 26
+        for i in range(len(s)):
+            freq[ord(s[i]) - ord('a')] += 1
+            freq[ord(t[i]) - ord('a')] -= 1
+        
+        for i in range(len(freq)):
+            if freq[i] != 0:
+                return False
+        
+        return True
